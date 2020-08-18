@@ -66,7 +66,7 @@ echo "Downloading NGC CLI for retrieving the BERT fine-tuned model"
 BIN_DIR=/workspace/bin
 mkdir -p $BIN_DIR
 cd $BIN_DIR
-wget https://ngc.nvidia.com/downloads/ngccli_bat_linux.zip
+wget --continue -O ngccli_cat_linux.zip https://ngc.nvidia.com/downloads/ngccli_cat_linux.zip && unzip -o ngccli_cat_linux.zip && chmod u+x ngc
 unzip ngccli_bat_linux.zip
 chmod u+x ngc
 # Remove zip file and checksum file

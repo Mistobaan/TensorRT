@@ -88,8 +88,8 @@ if __name__ == '__main__':
 
     # Import necessary plugins for BERT TensorRT
     nvinfer =  ctypes.CDLL("libnvinfer_plugin.so", mode=ctypes.RTLD_GLOBAL)
-    cm = ctypes.CDLL("/workspace/TensorRT/demo/BERT/build/libcommon.so", mode=ctypes.RTLD_GLOBAL)
-    pg = ctypes.CDLL("/workspace/TensorRT/demo/BERT/build/libbert_plugins.so", mode=ctypes.RTLD_GLOBAL)
+    cm = ctypes.CDLL("/bert/demo/BERT/build/libcommon.so", mode=ctypes.RTLD_GLOBAL)
+    pg = ctypes.CDLL("/bert/demo/BERT/build/libbert_plugins.so", mode=ctypes.RTLD_GLOBAL)
 
     with open(args.bert_engine, 'rb') as f, trt.Runtime(TRT_LOGGER) as runtime, \
         runtime.deserialize_cuda_engine(f.read()) as engine, engine.create_execution_context() as context:
